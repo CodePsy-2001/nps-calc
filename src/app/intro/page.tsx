@@ -27,7 +27,7 @@ export default function IntroPage() {
           <li>소득대체율 41.5% ⇒ 43% 인상</li>
           <li>지급개시연령 65세 ⇒ 68세 늦추기</li>
         </ul>
-        <p className="mt-4 text-gray-800">
+        <p className="mt-4 tracking-tight text-gray-800">
           지난 4월 1일,
           {' '}
           <strong>더 내고 더 받기</strong>
@@ -41,7 +41,7 @@ export default function IntroPage() {
           <strong>납입 기간</strong>
           만 알면 내는 돈과 받는 돈이 어떻게 바뀔지 쉽게 계산해볼 수 있어요. 국민연금의 지속가능성에 얼마나 영향을 미칠지, 같이 알아볼게요.
         </p>
-        <p className="mt-12 text-xs text-gray-700">
+        <p className="mt-12 text-xs tracking-tight text-gray-700">
           <strong className="mr-1.5">참고자료</strong>
           <span>
             2025년 ｢국민연금법｣ 개정의 재정 및 정책효과 분석 | 국회예산정책처
