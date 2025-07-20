@@ -96,6 +96,10 @@
     --shadow-2xl: 0 1px 3px 0px oklch(0.00 0 0 / 0.25);
 }
 
+@theme {
+    --font-toss-face: TossFaceFontMac;
+}
+
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -175,10 +179,6 @@
         background-color: var(--primary);
         color: var(--primary-foreground);
     }
-}
-
-@theme {
-    --font-toss-face: TossFaceFontMac;
 }
 
 @utility scrollbar-hidden {
