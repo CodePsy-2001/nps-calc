@@ -1,4 +1,5 @@
 'use client'
+import { FormatOptions, numToKorean } from 'num-to-korean'
 import { useForm } from 'react-hook-form'
 import { Scaffold } from '@/components/layout'
 import { Legend } from '@/components/toss-ui'
@@ -16,11 +17,14 @@ export function GrossSalaryStep({ onNext }: GrossSalaryStepProps) {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isValid },
+    watch,
   } = useForm<FormValues>({
     defaultValues: { salaryNow: undefined },
-    mode: 'onBlur',
+    mode: 'onSubmit',
   })
+
+  const salaryNow = watch('salaryNow')
 
   const onSubmit = ({ salaryNow }: FormValues) => {
     const yearSalary = Math.round(salaryNow)
@@ -34,14 +38,14 @@ export function GrossSalaryStep({ onNext }: GrossSalaryStepProps) {
           type="submit"
           form="salary-calc-startdate"
           size="cta"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !isValid}
         >
           다음
         </Button>
       )}
     >
       <main className="p-5">
-        <Legend className="mt-10" title="세전 연봉이 얼마인가요?" />
+        <Legend icon="💰" className="mt-10" title="세전 연봉이 얼마인가요?" />
         <form
           id="salary-calc-startdate"
           className="mt-10"
@@ -50,7 +54,7 @@ export function GrossSalaryStep({ onNext }: GrossSalaryStepProps) {
         >
           <div className="flex flex-row items-center gap-3">
             <Input
-              className="text-lg"
+              className="text-right text-lg"
               {...register('salaryNow', {
                 required: '연봉을 입력해주세요',
                 valueAsNumber: true,
@@ -64,6 +68,13 @@ export function GrossSalaryStep({ onNext }: GrossSalaryStepProps) {
               만 원
             </Label>
           </div>
+          <p className="my-2 text-right text-sm font-medium text-gray-600">
+            =
+            {' '}
+            {numToKorean(salaryNow * 10_000, FormatOptions.MIXED)}
+            {' '}
+            원
+          </p>
           {errors.salaryNow && (
             <p className="mt-2 text-sm text-red-600" role="alert">
               {errors.salaryNow.message}

@@ -18,7 +18,7 @@ export function StartYearStep({ onNext }: StartYearStepProps) {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
-    mode: 'onBlur',
+    mode: 'onSubmit',
   })
 
   const onSubmit = ({ startYear }: FormValues) => {
@@ -40,7 +40,7 @@ export function StartYearStep({ onNext }: StartYearStepProps) {
       )}
     >
       <main className="p-5">
-        <Legend className="mt-10" title="언제 일을 시작하셨나요?" />
+        <Legend icon="👷" title="언제 일을 시작하셨나요?" />
         <form
           id="salary-calc-startdate"
           className="mt-10"

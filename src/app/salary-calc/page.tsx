@@ -29,9 +29,6 @@ export default function SalaryCalcPage() {
 
   return (
     <>
-      <pre>
-        {JSON.stringify(funnel.context, null, 2)}
-      </pre>
       <funnel.Render
         세전월급={({ history }) => (
           <GrossSalaryStep onNext={salaryNow => history.push('납입시작', { salaryNow })} />
