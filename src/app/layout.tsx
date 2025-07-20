@@ -4,7 +4,7 @@ import { SideItem } from '@/components/layout/SideItem'
 import './global.css'
 
 const tossFace = localFont({
-  src: './TossFaceFontMac.ttf',
+  src: './fonts/TossFaceFontMac.ttf',
   display: 'swap',
   variable: '--font-toss-face',
 })
