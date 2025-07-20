@@ -15,12 +15,12 @@ export interface LegendProps {
 
 export function Legend({ icon, top, title, description, size = 'md', className }: LegendProps) {
   return (
-    <div className={cn('flex flex-col gap-8', className)}>
+    <div className={cn('flex flex-col gap-4', className)}>
       {typeof icon === 'string' ? <p className="font-toss-face text-4xl">{icon}</p> : icon}
-      <div className="flex flex-col gap-2.5">
+      <div className={cn(`flex flex-col gap-2.5`, size === 'lg' && 'gap-3.5')}>
         {top && <p className="text-xl font-semibold text-muted-foreground">{top}</p>}
-        <p className={cn(`text-2xl font-semibold`, size === 'lg' && `
-          text-3xl font-bold
+        <p className={cn(`text-2xl font-semibold tracking-tight`, size === 'lg' && `
+          text-[46px] leading-[1] font-extrabold tracking-tighter
         `)}
         >
           {convertNewlineToJSX(title)}
@@ -29,8 +29,8 @@ export function Legend({ icon, top, title, description, size = 'md', className }
           ? (
               <p
                 className={cn(`
-                  text-[17px] leading-tight font-normal text-neutral-600
-                `, size === 'lg' && 'text-lg')}
+                  text-base leading-tight font-medium text-neutral-600
+                `, size === 'lg' && `font-semibold`)}
               >
                 {convertNewlineToJSX(description)}
               </p>

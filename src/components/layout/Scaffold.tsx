@@ -4,6 +4,7 @@ import { BackButton } from '@/components/layout/BackButton'
 export interface ScaffoldProps {
   headerTransparent?: boolean
   headerLeft?: ReactElement | null
+  bottomTop?: string
   bottom?: ReactElement
 }
 
@@ -11,7 +12,7 @@ const backButton = <BackButton />
 
 export const HEADER_HEIGHT = 60
 
-export function Scaffold({ children, headerTransparent, headerLeft = backButton, bottom }: PropsWithChildren<ScaffoldProps>) {
+export function Scaffold({ children, headerTransparent, headerLeft = backButton, bottom, bottomTop }: PropsWithChildren<ScaffoldProps>) {
   return (
     <>
       <div
@@ -33,7 +34,8 @@ export function Scaffold({ children, headerTransparent, headerLeft = backButton,
       >
         {children}
       </div>
-      <div className="absolute bottom-0 w-full p-5">
+      <div className="absolute bottom-0 flex w-full flex-col gap-2 p-5">
+        <p className="text-center text-sm font-medium text-gray-500">{bottomTop}</p>
         {bottom}
       </div>
     </>

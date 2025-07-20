@@ -166,6 +166,10 @@
     input[type='number'] {
         -moz-appearance: textfield;
     }
+
+    strong {
+        font-weight: 700;
+    }
 }
 
 @theme {

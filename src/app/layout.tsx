@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { SideItem } from '@/components/layout/SideItem'
 import './global.css'
 
 const tossFace = localFont({
@@ -61,9 +62,9 @@ export default function RootLayout({
         className="h-screen w-screen antialiased"
       >
         <div className="relative flex h-full w-full items-center justify-center">
-          {/* <div id="app-layout-side"> */}
-          {/*  LayoutItem */}
-          {/* </div> */}
+          <div id="app-layout-side">
+            <SideItem />
+          </div>
           <div
             id="app-layout"
             className={`
