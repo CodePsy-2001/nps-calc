@@ -1,7 +1,14 @@
 import type { Metadata } from 'next'
+import localFont from 'next/font/local'
 import './global.css'
 
-const title = '개혁신당 국민연금 계산기'
+const tossFace = localFont({
+  src: './TossFaceFontMac.ttf',
+  display: 'swap',
+  variable: '--font-toss-face',
+})
+
+const title = '2025 국민연금 계산기'
 const description = '구/신연금 분리하면 어떻게 될까요?'
 
 export const metadata: Metadata = {
@@ -36,11 +43,36 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="ko"
+      className={`
+        ${tossFace.variable}
+      `}
+    >
+      <head>
+        <link
+          rel="stylesheet"
+          as="style"
+          precedence="default"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.min.css"
+        />
+      </head>
       <body
-        className="antialiased"
+        className="h-screen w-screen antialiased"
       >
-        {children}
+        <div className="relative flex h-full w-full items-center justify-center">
+          {/* <div id="app-layout-side"> */}
+          {/*  LayoutItem */}
+          {/* </div> */}
+          <div
+            id="app-layout"
+            className={`
+              relative flex flex-col items-center justify-center bg-white
+            `}
+          >
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   )

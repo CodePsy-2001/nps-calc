@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import { MoniconPlugin } from '@monicon/webpack'
 import bundleAnalyzer from '@next/bundle-analyzer'
 
 const withBundleAnalyzer = bundleAnalyzer({
@@ -6,7 +7,15 @@ const withBundleAnalyzer = bundleAnalyzer({
 })
 
 const nextConfig: NextConfig = {
-  turbopack: {},
+  webpack: (config) => {
+    config.plugins.push(
+      new MoniconPlugin({
+        collections: ['radix-icons'],
+      }),
+    )
+
+    return config
+  },
 }
 
 export default withBundleAnalyzer(nextConfig)
